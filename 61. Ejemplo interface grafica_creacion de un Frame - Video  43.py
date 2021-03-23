@@ -6,7 +6,7 @@ raiz.title('Trading Things')
 raiz.resizable(1,1)
 raiz.iconbitmap("logo_tgs.ico")
 raiz.geometry('650x350')
-raiz.config(bg='#7e1e8f')  #Con el # se coloca el codigo del color
+raiz.config(bg='#13610d')  #Con el # se coloca el codigo del color
 raiz.config(cursor='hand2')
 
 #Configuracion del Frame "Cuadro u objeto dentro de la raiz"
