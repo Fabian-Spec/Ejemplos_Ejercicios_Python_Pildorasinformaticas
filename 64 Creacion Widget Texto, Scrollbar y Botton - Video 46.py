@@ -7,7 +7,8 @@ root=Tk()
 miFrame=Frame(root, width=1200, height=600)
 miFrame.pack()
 
-cuadroNombre=Entry(miFrame)
+minombre=StringVar()
+cuadroNombre=Entry(miFrame, textvariable=minombre)
 cuadroNombre.grid(row=0, column=1, padx=10, pady=10)
 cuadroNombre.config(fg='blue',justify='center')
 
@@ -24,7 +25,7 @@ cuadroDireccion.grid(row=3, column=1, padx=10, pady=10)
 cuadroDireccion.config(fg='blue',justify='center')
 
 
-#---------------------------------------Widgets cuadro de texto y Scrollbar ------------------------------------
+#------------------------------Widgets cuadro de texto y Scrollbar ------------------------------------
 
 cuadrodetexto=Text(miFrame, width=16, height =5)
 cuadrodetexto.grid(row=4, column=1, padx=10, pady=10)
@@ -34,6 +35,7 @@ scrollVert.grid(row=4, column=2, sticky='nsew')
 
 cuadrodetexto.config(yscrollcommand=scrollVert.set)
 
+#Nota, Se puede visitar la pagina tutorialspoint.com/python para ver mas opciones y parametrospara el widget texto
 
 #---------------------------------------Widgets Label ------------------------------------
 nombreLabel=Label(miFrame, text='Nombre:')
@@ -51,6 +53,15 @@ direccionLabel.grid(row=3, column=0, sticky = 'e', padx=10, pady=10)
 comentariosLabel=Label(miFrame, text='Comentarios')
 comentariosLabel.grid(row=4, column=0, sticky = 'e', padx=10, pady=10)
 
+
+#----------------------------------Creacion de Boton ----------------------------------------
+
+def codigoBoton():
+    minombre.set('Fabián')
+
+
+botonEnvio=Button(root, text='Enviar', command = codigoBoton)
+botonEnvio.pack()
 
 
 
