@@ -1,0 +1,3 @@
+
+listaNumerosDigitados = [0]
+print(listaNumerosDigitados)
