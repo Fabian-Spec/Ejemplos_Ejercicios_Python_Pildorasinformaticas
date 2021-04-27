@@ -19,11 +19,13 @@ pantalla.grid(row=1,column=1, padx=10, pady=10, columnspan=4)#Cubicacion del cad
 pantalla.config(background='Black', fg='#03f943', justify='right')
 pantalla.insert(0,'0')
 
-
-#--------------------------------------PULSACIONES DE TECLADO ----------------------------------------------------
+#--------------------------------------LISTAS DE HISTORICOS --------------------------------------
 
 listaHistoricoTransacciones = [0]
 listaNumeros = [0]
+
+
+#--------------------------------------PULSACIONES DE TECLADO ----------------------------------------------------
 
 #----------------------------Operaciones de pulsaciones de teclado Iniciales--------------------
 
@@ -101,7 +103,39 @@ def suma():
         except ValueError:
             print(int(0))
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+
+
+#-------------------------------------------FUNCIÓN DE RESTA ---------------------------------------
+#----------------------------------------Funcion resta Inicial----------------------------------------------
+
+def resta():
+    if len(listaHistoricoTransacciones) < 2:
+        try:
+            listaHistoricoTransacciones.append(numeroPantalla.get())
+            pantalla.delete(0,END)
+            #print('resta historico de transacciones: ',int(listaHistoricoTransacciones[-2]) - int(listaHistoricoTransacciones[-1]))
+            #listaHistoricoTransacciones.append(int(listaHistoricoTransacciones[-2]) - int(listaHistoricoTransacciones[-1]))
+            print('listaHistorico de transacciones: ',listaHistoricoTransacciones)
+            numeroPantalla.set(int(listaHistoricoTransacciones[-1]))
+        except ValueError:
+            print(int(0))
+
+#--------------------------------------Funcion resta posterior ----------------------------------------------
+
+    else:
+        if len(listaNumeros) <2:
+            del listaHistoricoTransacciones[1:]
+        try:
+            listaHistoricoTransacciones.append(listaNumeros[-1])
+            pantalla.delete(0,END)
+            print(int(listaHistoricoTransacciones[-2]) - int(listaHistoricoTransacciones[-1]))
+            listaHistoricoTransacciones.append(int(listaHistoricoTransacciones[-2]) - int(listaHistoricoTransacciones[-1]))
+            print('resultadoHistoricodeTransacciones: ',listaHistoricoTransacciones)
+            numeroPantalla.set(int(listaHistoricoTransacciones[-1]))
+            del listaNumeros [1:]
+            print('listanumeros: ', listaNumeros)
+        except ValueError:
+            print(int(0))
 
 
 
@@ -143,7 +177,7 @@ Boton2=Button(miFrame, text='2', width=3, command=lambda:numeroPulsado('2'))
 Boton2.grid(row=4, column=2)
 Boton3=Button(miFrame, text='3', width=3, command=lambda:numeroPulsado('3'))
 Boton3.grid(row=4, column=3)
-BotonRestar=Button(miFrame, text='-', width=3)
+BotonRestar=Button(miFrame, text='-', width=3, command=lambda:resta())
 BotonRestar.grid(row=4, column=4)
 
 #---------------------------Creación de los Botones Fila 4------------------------------------------
